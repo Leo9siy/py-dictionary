@@ -1,3 +1,6 @@
+from typing import Hashable
+
+
 class Dictionary:
 
     def __init__(self) -> None:
@@ -5,7 +8,7 @@ class Dictionary:
         self.length = 8
         self.size = 0
 
-    def __setitem__(self, key: any, value: any) -> None:
+    def __setitem__(self, key: Hashable, value: any) -> None:
         index = self.index_function(key)
 
         if self.table[index]:
@@ -25,7 +28,7 @@ class Dictionary:
             self.size += 1
         self.check_size()
 
-    def __getitem__(self, key: any) -> any:
+    def __getitem__(self, key: Hashable) -> list:
         index = self.index_function(key)
 
         if self.table[index]:
@@ -41,16 +44,16 @@ class Dictionary:
                     index = 0
         raise KeyError("Key not found")
 
-    def __len__(self) -> any:
+    def __len__(self) -> int:
         return self.size
 
-    def clear(self) -> any:
+    def clear(self) -> None:
         self.__init__()
 
-    def index_function(self, key: any) -> any:
+    def index_function(self, key: Hashable) -> int:
         return hash(key) % self.length
 
-    def check_size(self) -> any:
+    def check_size(self) -> None:
         if self.length * 2 / 3 < self.__len__():
             self.length *= 2
             new_table = [[] for _ in range(self.length)]

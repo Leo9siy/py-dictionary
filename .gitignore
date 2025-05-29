@@ -1,2 +1,18 @@
-# Created by venv; see https://docs.python.org/3/library/venv.html
-*
+# Created by https://www.toptal.com/developers/gitignore/api/python
+# Edit at https://www.toptal.com/developers/gitignore?templates=python
+
+### Python ###
+# Byte-compiled / optimized / DLL files
+__pycache__/
+.idea
+.env
+.venv
+env/
+venv/
+ENV/
+env.bak/
+venv.bak/
+Lib**
+Scripts**
+pyvenv.cfg**
+
